@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 */
+import com.example.Phone.Validation.repository.dto.PVResponse;
 import com.example.Phone.Validation.service.PVService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +30,7 @@ public class PVController {
     })*/
     //milestone 5
 
-    public String getResults(@RequestParam(value="q") String query){
+    public PVResponse getResults(@RequestParam(value="q") String query){
         return pvService.getResults(query);
     }
 

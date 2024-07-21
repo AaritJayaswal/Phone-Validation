@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "carrier"
 })
 @Generated("jsonschema2pojo")
-public class Result {
+public class PVResponse {
 
     @JsonProperty("phone")
     private String phone;

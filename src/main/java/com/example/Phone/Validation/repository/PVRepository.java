@@ -1,5 +1,6 @@
 package com.example.Phone.Validation.repository;
 
+import com.example.Phone.Validation.repository.dto.PVResponse;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -16,7 +17,7 @@ public class PVRepository {
                 .build();
     }
 
-    public String validateNumber(String query){
+    public PVResponse validateNumber(String query){
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .queryParam("api_key","f56dfefdd9e2408d8845ad9c0e1b7a0c")
@@ -24,8 +25,9 @@ public class PVRepository {
                         .build()
                 )
                 .retrieve()
-                .bodyToMono(String.class)
-                .block();
+                .bodyToMono(PVResponse.class)
+                .block()
+                ;
     }
 
 }
