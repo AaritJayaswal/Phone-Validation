@@ -10,7 +10,7 @@ public class PVRepository {
 
     private static final String baseUrl = "https://phonevalidation.abstractapi.com/v1/";
 
-    public PVRepository() {
+    public PVRepository(WebClient webClientMock) {
         webClient = WebClient
                 .builder()
                 .baseUrl(baseUrl)
