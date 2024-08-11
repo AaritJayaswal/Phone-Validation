@@ -10,7 +10,7 @@ public class PVRepository {
 
     private static final String baseUrl = "https://phonevalidation.abstractapi.com/v1/";
 
-    public PVRepository(WebClient webClientMock) {
+    public PVRepository() {
         webClient = WebClient
                 .builder()
                 .baseUrl(baseUrl)
@@ -21,7 +21,7 @@ public class PVRepository {
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .queryParam("api_key","f56dfefdd9e2408d8845ad9c0e1b7a0c")
-                        .queryParam("phone","18582619192")
+                        .queryParam("phone",query)
                         .build()
                 )
                 .retrieve()

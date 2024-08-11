@@ -20,18 +20,10 @@ public class PVController {
     }
 
     @GetMapping("/searchPVResults")
-   /* @ApiOperation(value = "Searches for articles matching the search term",
-            notes = "Response may include multiple Result values.",
-            response = Result.class,
-            responseContainer="List")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Result(s) found"),
-            @ApiResponse(code = 404, message = "Result(s) not found")
-    })*/
-    //milestone 5
-
     public PVResponse getResults(@RequestParam(value="q") String query){
         return pvService.getResults(query);
     }
 
 }
+
+//http://localhost:5000/searchPVResults?q=number
