@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-class LocRepositoryTest {
+class PVRepositoryTest {
 
     private PVRepository pvRepository;
 
@@ -37,7 +37,7 @@ class LocRepositoryTest {
     WebClient.ResponseSpec responseSpecMock;
 
     @Mock
-    Mono<PVRepository> LocResponseMonoMock;
+    Mono<PVRepository> PVResponseMonoMock;
 
     @BeforeEach
     void setUp() {
@@ -64,16 +64,16 @@ class LocRepositoryTest {
                 .thenReturn(requestHeadersSpecMock);
         when(requestHeadersSpecMock.retrieve())
                 .thenReturn(responseSpecMock);
-        when(responseSpecMock.bodyToMono(PVResponse.class))
-                .thenReturn(PVResponseMonoMock);
-        when(LocResponseMonoMock.block())
-                .thenReturn(response);
+        //when(responseSpecMock.bodyToMono(PVResponse.class))
+               // .thenReturn(PVResponseMonoMock);
+       // when(PVResponseMonoMock.block())
+               // .thenReturn(response);
 
         //when
-        List<PVResponse> actualLocResults = pvRepository.validateNumber(query);
+        List<PVResponse> actualPVResults = (List<PVResponse>) pvRepository.validateNumber(query);
 
         //then
-        assertEquals(expectedResults, actualLocResults);
+        assertEquals(expectedResults, actualPVResults);
     }
 
 }
