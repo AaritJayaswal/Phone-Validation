@@ -6,11 +6,13 @@ import io.swagger.annotations.ApiResponses;
 */
 import com.example.Phone.Validation.repository.dto.PVResponse;
 import com.example.Phone.Validation.service.PVService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin
 public class PVController {
 
     private final PVService pvService;
@@ -19,6 +21,7 @@ public class PVController {
         this.pvService = pvService;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/searchPVResults")
     public PVResponse getResults(@RequestParam(value="q") String query){
         return pvService.getResults(query);
